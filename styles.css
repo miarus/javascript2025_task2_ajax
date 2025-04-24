@@ -1,0 +1,313 @@
+/* Perustyylit */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #E6EAE1;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Musiikkityylinen header - korvaa aiemman header-tyylin. aaltopalkin korkeus, taustaväri, reunanpyöristys*/
+.music-header {
+    height: 120px;
+    background-color: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.music-waves {  /*aaltopalkki*/
+    height: 100%;
+    background: linear-gradient(90deg, 
+              #517664, #6A9483, #517664, 
+              #436156, #6A9483, #517664); /* Vintage vihreän sävyt */
+    background-size: 600% 100%;
+    animation: soundWave 8s infinite linear;
+    position: relative;
+}
+
+.music-waves::before {   /*siirtää taustakuvaa sivusuunnassa*/
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%);
+    background-size: 200px 100%, 100% 100%;
+    background-repeat: repeat, no-repeat;
+}
+
+.music-waves::after {  /*kerroksia lisää*/
+    content: "";
+    position: absolute;
+    height: 60px;
+    background-image: 
+        radial-gradient(circle at 30px 30px, rgba(255,255,255,0.2) 0, rgba(255,255,255,0) 35px),
+        radial-gradient(circle at 80px 40px, rgba(255,255,255,0.2) 0, rgba(255,255,255,0) 25px),
+        radial-gradient(circle at 120px 20px, rgba(255,255,255,0.2) 0, rgba(255,255,255,0) 30px),
+        radial-gradient(circle at 170px 35px, rgba(255,255,255,0.2) 0, rgba(255,255,255,0) 20px),
+        radial-gradient(circle at 220px 15px, rgba(255,255,255,0.2) 0, rgba(255,255,255,0) 25px),
+        radial-gradient(circle at 260px 40px, rgba(255,255,255,0.2) 0, rgba(255,255,255,0) 30px);
+    background-repeat: repeat-x;
+    background-size: 300px 60px;
+    width: 100%;
+    bottom: 0;
+    animation: moveNotes 15s infinite linear;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+@keyframes soundWave {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+@keyframes moveNotes {
+    from { background-position: 0 0; }
+    to { background-position: 600px 0; }
+}
+
+/* Voi säilyttää myös vanhan header-tyylin varmuuden vuoksi */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+}
+
+h2 {
+    font-family: 'Righteous', sans-serif;
+}
+
+
+/* Kotipainike - siirretty ylemmäs */
+.home-button {
+    text-align: left;
+    margin: 10px 0 20px 0;
+}
+
+.home-button a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #517664;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.home-button a:hover {
+    background-color: #323aa8;
+}
+
+/* Hakuosio */
+.search-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-box {
+    display: flex;
+}
+
+#artistInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+
+#searchButton {
+    padding: 10px 15px;
+    background-color: #517664;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#searchButton:hover {
+    background-color: #4550c4;
+}
+
+/* Sisältöosio */
+.content {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.artists-section, .albums-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.artists-section {
+    flex: 1;
+    max-width: 300px;
+}
+
+.albums-section {
+    flex: 3;
+}
+
+/* Artistilista */
+#artistsList {
+    list-style: none;
+}
+
+#artistsList li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+#artistsList li:hover {
+    background-color: #f0f0f0;
+}
+
+.artist-loading {
+    color: #888;
+    font-style: italic;
+}
+
+/* Albumit */
+#albumsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.album-card {
+    width: calc(33.333% - 15px);
+    min-width: 200px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+}
+
+.album-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.album-info {
+    padding: 15px;
+}
+
+.album-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.album-year {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Albumin tiedot */
+.album-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.track-list {
+    list-style: none;
+}
+
+.track-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.track-number {
+    margin-right: 10px;
+    color: #888;
+    min-width: 30px;
+}
+
+.track-name {
+    flex: 1;
+}
+
+.track-duration {
+    color: #888;
+}
+
+.album-instructions, .detail-instructions {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid rgba(81, 118, 100, 0.3); /* Hieno vihreä linja */
+    color: #517664; /* Sama vihreä kuin nappuloissa */
+    font-size: 14px;
+}
+
+.site-footer p {
+    margin: 0;
+}

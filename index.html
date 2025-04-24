@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musiikki Info Sovellus</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="home-button">
+            <a href="#" id="homeButton">Koti</a>
+        </div>
+        
+        <header class="music-header">
+            <!-- Tähän tulee visuaalinen elementti ilman tekstiä -->
+            <div class="music-waves"></div>
+        </header>
+        
+        <h1 class="main-title">Musiikki Info Sovellus</h1>
+        <p class="subtitle">Löydä tietoa suosikkiartisteistasi Last.fm:n avulla</p>
+
+
+        <div class="search-section">
+            <h2>Etsi artisteja</h2>
+            <div class="search-box">
+                <input type="text" id="artistInput" placeholder="Kirjoita artistin nimi...">
+                <button id="searchButton">Hae</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="artists-section">
+                <h2>Artistit</h2>
+                <ul id="artistsList">
+                    <!-- Artistit listataan tähän -->
+                    <li class="artist-loading">Ladataan artisteja...</li>
+                </ul>
+            </div>
+
+            <div class="albums-section">
+                <h2>Albumit</h2>
+                <div id="albumsContainer">
+                    <!-- Albumit näytetään tähän -->
+                    <p class="album-instructions">Valitse artisti nähdäksesi albumit</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="album-details">
+            <h2>Albumin tiedot</h2>
+            <div id="albumDetailContainer">
+                <!-- Albumin kappaleet näytetään tähän -->
+                <p class="detail-instructions">Valitse albumi nähdäksesi tiedot</p>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <p>Made by M</p>
+        </footer>
+    </div>
+    </div>
+
+    <script src="apin_skripti.js"></script>
+</body>
+</html>
